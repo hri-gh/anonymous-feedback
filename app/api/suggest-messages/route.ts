@@ -10,18 +10,23 @@ const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
 export async function POST(req: Request) {
     try {
-        const prompt = `Create a list of three concise, constructive, and anonymous feedback messages about a developer’s portfolio, formatted as a single string. Each message must be separated by '||'.
+        const prompt = `
+Create a list of five concise, constructive, and natural-sounding feedback suggestions about a developer’s portfolio.
+These messages will be used as quick-select options in an anonymous feedback app, allowing visitors to easily send feedback after viewing the portfolio.
 
-These messages are intended for an anonymous feedback platform. They should encourage honest but respectful feedback about a portfolio, projects, skills, or presentation.
+Format the output as a single string, with each message separated by '||'.
 
 Guidelines:
 - Keep each message short and clear.
-- Avoid personal, sensitive, or offensive language.
-- Focus on portfolio quality, clarity, projects, or improvement areas.
 - Use a friendly and professional tone.
+- Mix appreciation and constructive suggestions.
+- Avoid overly harsh criticism.
+- Not all messages should be questions.
+- Focus on portfolio quality, project clarity, skills, presentation, or improvement areas.
+- Avoid personal, sensitive, or offensive language.
 
 Example output format:
-Your projects look interesting, but which one best represents your strongest skills?||What part of the portfolio do you think needs the most improvement?||Is there anything missing that would help recruiters understand your work better?"
+"Your portfolio is well structured, but adding more technical details would make it stronger.||I really liked the project layout and how easy it is to navigate.||Highlighting measurable results could make your work stand out more.||Some sections could benefit from clearer explanations.||It would help to showcase which project best represents your strongest skills."
 `;
         const response = await ai.models.generateContent({
             model: 'gemini-2.5-flash-lite',
@@ -30,7 +35,7 @@ Your projects look interesting, but which one best represents your strongest ski
                 maxOutputTokens: 400,
                 temperature: 1.0,
                 topP: 0.95,
-                topK:40
+                topK: 40
 
             },
 

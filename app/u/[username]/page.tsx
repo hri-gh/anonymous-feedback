@@ -46,8 +46,7 @@ const parseStringMessages = (messageString: string): string[] => {
 };
 
 const initialMessageString =
-  "What's your favorite movie?||Do you have any pets?||What's your dream job?";
-
+  "I really liked the overall structure of your portfolio and how easy it is to explore.||It might be helpful to add more details about the technologies used in each project.||Highlighting the impact or results of your work could make the projects even stronger.||Your projects are interesting, and expanding on your problem-solving approach would make them stand out more.";
 export default function SendMessage() {
   const [isLoading, setIsLoading] = useState(false);
   const [suggestedString, setSuggestedString] = useState<string | null>(null);
@@ -231,7 +230,7 @@ export default function SendMessage() {
                 <CardHeader>
                   <h3 className="text-xl font-semibold">Messages</h3>
                 </CardHeader>
-                <CardContent className="flex flex-col space-y-4">
+                <CardContent className="flex flex-col space-y-2">
                   {suggestError ? (
                     <p className="text-red-500">{suggestError}</p>
                   ) : (
