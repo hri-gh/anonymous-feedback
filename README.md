@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Feedback Platform
 
-## Getting Started
+An anonymous feedback submission system designed to collect validated user input through a controlled backend workflow.
+🔗 [Live Application](https://afa-feedback.vercel.app/u/hri)
+This application focuses on secure message intake, schema-driven storage, and structured administrative access without revealing user identity.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The Feedback Platform allows users to submit anonymous feedback through a public interface.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The system is intentionally designed as a **one-directional communication workflow**, meaning:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Users submit feedback anonymously
+- No identity is collected or exposed
+- Administrators review and manage submissions internally
+- No public reply channel exists
 
-## Learn More
+The emphasis is on controlled intake and clean backend handling.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧠 Core Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- 🌐 Anonymous public feedback submission
+- 🛡 Input validation middleware
+- 🧾 Schema-driven message storage
+- 🔐 Protected admin dashboard for reviewing submissions
+- 📦 Modular API route structure
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🏗 Architecture
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Frontend
+- Public feedback form
+- Admin panel for viewing submissions
+
+### Backend
+- REST API endpoints for message handling
+- Validation middleware to sanitize and verify inputs
+- MongoDB schema for structured persistence
+- Protected admin routes
+
+All incoming data is validated before being stored to ensure predictable and safe processing.
+
+---
+
+## 🔐 Security & Design Decisions
+
+- No user identity collection
+- No reply mechanism to preserve anonymity
+- Protected administrative routes
+- Controlled and validated message workflows
+
+The system is intentionally simple and focused on clean separation between public input and private administration.
+
+---
+
+## 🛠 Tech Stack
+
+- Next.js
+- TypeScript
+- Node.js
+- Express.js (if separate backend)
+- MongoDB
+- REST APIs
+
+---
+
+## 📌 Design Focus
+
+This project was built to practice:
+
+- Secure API design
+- Anonymous message handling
+- Middleware-based validation
+- Clean separation of public and admin responsibilities
+
+---
+
+## 🧑‍💻 Author
+
+Built as a personal full-stack engineering project to explore controlled backend workflows and structured feedback handling.
