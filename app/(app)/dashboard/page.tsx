@@ -155,18 +155,22 @@ const DashBoardPage = () => {
                             type="text"
                             value={profileUrl}
                             disabled
-                            className="input input-bordered w-full p-2 mr-2"
+                            className="input input-bordered w-full p-2 mr-2 text-blue-600 font-semibold"
                         />
                         <Button onClick={copyToClipboard}>Copy</Button>
                     </div>
+                    <p className="text-sm text-muted-foreground mt-2">
+                        Share this link to receive anonymous feedback.
+                    </p>
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-4 ">
                     <Switch
                         {...register('acceptMessages')}
                         checked={acceptMessages}
                         onCheckedChange={handleSwitchChange}
                         disabled={isSwitchLoading}
+
                     />
                     <span className="ml-2">
                         Accept Messages: {acceptMessages ? 'On' : 'Off'}
@@ -198,7 +202,7 @@ const DashBoardPage = () => {
                             />
                         ))
                     ) : (
-                        <p>No messages to display.</p>
+                        <p className='text-center text-muted-foreground'>No messages to display.</p>
                     )}
                 </div>
             </div>

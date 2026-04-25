@@ -24,7 +24,7 @@ export const Navbar = () => {
                         {/* Brand */}
                         <Link href="/" className="flex items-center gap-2">
                             <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                                Feedback
+                                Feedback<span className="text-blue-600">X</span>
                             </span>
                         </Link>
 

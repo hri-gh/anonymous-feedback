@@ -23,6 +23,7 @@ import { useToast } from "@/components/ui/use-toast"
 // OTHERS UTILS IMPORT
 import { SignInSchema } from '@/schemas';
 import { Loader2 } from 'lucide-react'
+import { handleDemoLogin } from '@/lib/demo-login';
 
 
 export const SignInForm = () => {
@@ -78,8 +79,8 @@ export const SignInForm = () => {
             <div className="flex justify-center items-center min-h-screen bg-gray-800">
                 <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
                     <div className="text-center">
-                        <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
-                            Welcome Back to True Feedback
+                        <h1 className="text-4xl font-sans font-extrabold tracking-tight lg:text-5xl mb-6">
+                            Welcome Back to <span className="">Feedback<span className="text-blue-600">X</span></span>
                         </h1>
                         <p className="mb-4">Sign in to continue your secret conversations</p>
                     </div>
@@ -107,7 +108,7 @@ export const SignInForm = () => {
                                     </FormItem>
                                 )}
                             />
-                             <Button type="submit" className='w-full' disabled={isSubmitting}>
+                            <Button type="submit" className='w-full' disabled={isSubmitting}>
                                 {isSubmitting ? (
                                     <>
                                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -126,6 +127,15 @@ export const SignInForm = () => {
                                 Sign up
                             </Link>
                         </p>
+                    </div>
+
+                    <div className="text-center mt-2 border-t pt-4">
+                        <button
+                            onClick={() => handleDemoLogin(router, toast, setIsSubmitting)}
+                            className="text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors "
+                        >
+                            Prefer a quick look? <span className="underline">Try Demo Account</span>
+                        </button>
                     </div>
                 </div>
             </div>
