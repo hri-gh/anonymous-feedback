@@ -202,7 +202,7 @@ const DashBoardPage = () => {
                             />
                         ))
                     ) : (
-                        <p className='text-center text-muted-foreground'>No messages to display.</p>
+                        <p className='text-muted-foreground'>No messages to display.</p>
                     )}
                 </div>
             </div>

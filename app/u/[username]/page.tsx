@@ -152,29 +152,8 @@ export default function SendMessage() {
   return (
     <>
       <div className="mx-auto my-8 p-6 bg-white rounded">
-        <div className="flex gap-10">
-          {/* Left: session history */}
-          <aside className="w-80 bg-slate-300 p-2 rounded-lg">
-            <Card className='rounded-md'>
-              <CardHeader >
-                <h3 className="text-lg font-semibold">Message History</h3>
-              </CardHeader>
-              <CardContent className="flex flex-col space-y-2 max-h-[60vh] overflow-auto">
-                {sentMessages.length === 0 ? (
-                  <p className="text-sm text-muted-foreground">No messages sent yet.</p>
-                ) : (
-                  sentMessages.map((m, i) => (
-                    <div
-                      key={i}
-                      className="p-2 rounded border text-sm break-words bg-gray-50"
-                    >
-                      {m}
-                    </div>
-                  ))
-                )}
-              </CardContent>
-            </Card>
-          </aside>
+        <div className="flex flex-col lg:flex-row gap-10">
+
 
           {/* Right: existing form + suggestions */}
           <main className="flex-1 bg-slate-100 p-4 rounded-lg">
@@ -192,7 +171,7 @@ export default function SendMessage() {
                       <FormControl>
                         <Textarea
                           placeholder="Write your anonymous message here"
-                          className="resize-none"
+                          className="resize-none border-2 border-gray-300 min-h-32"
                           {...field}
                         />
                       </FormControl>
@@ -239,7 +218,7 @@ export default function SendMessage() {
                         <Button
                           key={index}
                           variant="outline"
-                          className="mb-2"
+                          className="mb-2 break-words whitespace-pre-wrap"
                           onClick={() => handleMessageClick(message)}
                         >
                           {message}
@@ -259,6 +238,28 @@ export default function SendMessage() {
               </Link>
             </div>
           </main>
+          {/* Left: session history */}
+          <aside className="lg:w-80 w-full bg-slate-300 p-2 rounded-lg">
+            <Card className='rounded-md max-h-[60vh]'>
+              <CardHeader >
+                <h3 className="text-lg font-semibold">Sent Messages</h3>
+              </CardHeader>
+              <CardContent className="flex flex-col space-y-2 max-h-[60vh] overflow-auto">
+                {sentMessages.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">No messages sent yet.</p>
+                ) : (
+                  sentMessages.map((m, i) => (
+                    <div
+                      key={i}
+                      className="p-2 rounded border text-sm break-words bg-gray-50"
+                    >
+                      {m}
+                    </div>
+                  ))
+                )}
+              </CardContent>
+            </Card>
+          </aside>
         </div>
       </div>
     </>
